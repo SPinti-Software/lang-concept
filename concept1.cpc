@@ -17,15 +17,12 @@ def/ hello (name)
 	txt/ "hello ${name}"	
 end/
 
-' Comme en python lambda:
-goodby = lambda/ (name) text/ "Goodbye ${name}"
-
 ' et on les appeleraient comme ceci:
 call/ hello "test de julien a nouveau"
 ' l'idée serait de séparer mot clef (finissant par / et reserver) et l'espace de nom utilisateur
 
-' on pourrait inclure des dépendances externes avec par ex "include/"
-include/ "cpcgui"
+' on pourrait inclure des dépendances externes avec par ex "import/"
+import/ "cpcgui"
 ' ce qui permettrait d'importer 2 types de librairies
 '  - code cc+
 '  - libnative (et ces dernieres pourrait ajouter de nouveaux keywords)
@@ -118,8 +115,6 @@ PictureBox/
     .image      = "%user_path%/name.png"
 end/
 
-' (Ici Chrapati. Après avoir légèrement modifier quelques trucs qui ont été mis en place par les autres, voici ce que je propose) :
-
 ' Pour les variables modifiables par l'utilisateur :
 
 let/ /input: "Entrez une valeur : ", x
@@ -130,19 +125,17 @@ txt/ "${x}"
 
 let/ y = 5
 
-if/ 
-    x == y then:
-        txt/ "x est egal a y"
-    or x < y then:
+if/ x == y then:
+	txt/ "x est egal a y"
+or x < y then:
         txt/ "x est inferieur a y"
-    else:
+else:
         txt/ "x est superieur a y"
 end/
 
 ' Pour les boucles type "tant que"
 
-while/
-    x < y then:
+while/ x < y then:
     let/ x + 1
 end/
 
@@ -150,10 +143,9 @@ end/
 
 let/ tab = [3, 5, 4, 9, 14, 15, 21, 38]
 
-for/
-    y in tab:
-    if tab[0] == y then:
-        txt/ "y = ${tab[0]}"
+for/ y in tab:
+	if/ tab[0] == y then:
+        	txt/ "y = ${tab[0]}"
 end/
 
 
