@@ -125,9 +125,9 @@ txt/ "${x}"
 
 let/ y = 5
 
-if/ x == y then:
+if/ x == y :
 	txt/ "x est egal a y"
-or x < y then:
+or x < y :
         txt/ "x est inferieur a y"
 else:
         txt/ "x est superieur a y"
@@ -135,7 +135,7 @@ end/
 
 ' Pour les boucles type "tant que"
 
-while/ x < y then:
+while/ x < y :
     let/ x + 1
 end/
 
@@ -144,7 +144,7 @@ end/
 let/ tab = [3, 5, 4, 9, 14, 15, 21, 38]
 
 for/ y in tab:
-	if/ tab[0] == y then:
+	if/ tab[0] == y :
         	txt/ "y = ${tab[0]}"
 end/
 
