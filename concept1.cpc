@@ -127,7 +127,7 @@ let/ y = 5
 
 if/ x == y :
 	txt/ "x est egal a y"
-if/ x < y :
+elif/ x < y :
         txt/ "x est inferieur a y"
 else/
         txt/ "x est superieur a y"
