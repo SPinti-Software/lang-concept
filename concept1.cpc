@@ -11,18 +11,18 @@ txt/ "il est ${SYS.TIME}"
 ' pour definir une fonction
 ' def/ name (args)
 '  body
-' end/
+' end/ def
 
 def/ hello (name)
 	txt/ "hello ${name}"	
-end/
+end/ def
 
 ' et on les appeleraient comme ceci:
 call/ hello "test de julien a nouveau"
 ' l'idée serait de séparer mot clef (finissant par / et reserver) et l'espace de nom utilisateur
 
-' on pourrait inclure des dépendances externes avec par ex "import/"
-import/ "cpcgui"
+' on pourrait inclure des dépendances externes avec par ex "use/"
+use/ "cpcgui"
 ' ce qui permettrait d'importer 2 types de librairies
 '  - code cc+
 '  - libnative (et ces dernieres pourrait ajouter de nouveaux keywords)
@@ -53,7 +53,7 @@ let/ logon_win_handle = window/
     .titlecolor     = (255, 255, 255)
     .backcolor      = (150, 0, 220)
     .icon           = ""
-end/
+end/ window
 
 ' on aurait pu faire
 login_win_handle = window/ "Logon window" logon_pos_x ....
@@ -75,7 +75,7 @@ PictureBox/
     .sx         = logon_siz_x 
     .sy         = logon_siz_y 
     .image      = "${Media_OS}/bckgnd/LOG_TRSP.png"
-end/
+end/ PictureBox
 
 image_SX = 99
 image_SY = 99
@@ -95,7 +95,7 @@ PictureBox/
     .sy         = image_SY 
     .image      = "%user_path%/image.png"
 	.event      = "%_EXE_PATH_DIR%/logon_ev.cpc" ' TODO: trouver un truc cohérent pour ce genre de variable
-end/
+end/ PictureBox
 
 ' ==== User image name ====
 name_SX = 99
@@ -113,7 +113,7 @@ PictureBox/
     .sx         = name_SX 
     .sy         = name_SY
     .image      = "%user_path%/name.png"
-end/
+end/ PictureBox
 
 ' Pour les variables modifiables par l'utilisateur :
 
@@ -131,13 +131,13 @@ elif/ x < y :
         txt/ "x est inferieur a y"
 else/
         txt/ "x est superieur a y"
-end/
+end/ if
 
 ' Pour les boucles type "tant que"
 
 while/ x < y :
     let/ x + 1
-end/
+end/ while
 
 ' Pour les boucles type 'pour'
 
@@ -146,6 +146,6 @@ let/ tab = [3, 5, 4, 9, 14, 15, 21, 38]
 for/ y in tab:
 	if/ tab[0] == y :
         	txt/ "y = ${tab[0]}"
-end/
+end/ for
 
 
