@@ -148,4 +148,12 @@ for/ y in tab:
         	txt/ "y = ${tab[0]}"
 end/ for
 
+' Pour les conditions types "switch" (comme en C++). Attention, ça peut piquer des yeux.
+
+switch/ x :
+    case/ 1 : "Yes"
+    case/ 2 : "No"
+    case/ default : "None"
+end/ switch
+
 
