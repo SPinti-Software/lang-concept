@@ -131,12 +131,12 @@ elif/ x < y :
         txt/ "x est inferieur a y"
 else/
         txt/ "x est superieur a y"
-end/ if
+end/
 
 ' Pour les boucles type "tant que"
 
 while/ x < y :
-    let/ x + 1
+    let/ x = x + 1
 end/ while
 
 ' Pour les boucles type 'pour'
@@ -146,7 +146,8 @@ let/ tab = [3, 5, 4, 9, 14, 15, 21, 38]
 for/ y in tab:
 	if/ tab[0] == y :
         	txt/ "y = ${tab[0]}"
-end/ for
+    end/
+end/
 
 ' Pour les conditions types "switch" (comme en C++). Attention, ça peut piquer des yeux.
 
@@ -154,6 +155,6 @@ switch/ x :
     case/ 1 : "Yes"
     case/ 2 : "No"
     case/ default : "None"
-end/ switch
+end/
 
 
