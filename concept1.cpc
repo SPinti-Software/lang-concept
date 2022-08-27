@@ -57,6 +57,21 @@ end/
 
 ' on aurait pu faire
 login_win_handle = window/ "Logon window" logon_pos_x ....
+' J'aurais mis quelque chose plus à la C 
+login_win_handle = window(
+                    "Login",
+                    logon_pos_x,
+                    logon_pos_y,
+                    logon_siz_x,
+                    logon_siz_y,
+                    100,
+                    "TYPE:4 ALPHAMODE:0 BLURRY:6 CTX:1",
+                    "50, 50, 100",
+                    "255, 255, 255",
+                    "150, 0, 220",
+                    \#NULL
+                    )
+' Cela serait déjà plus propre en appellant via une fonction, gardant le fait que la methode plus haut peut-etre utiliser :)
 ' tout comme on peut faire
 txt/
 .txt = "Hello World" ' ouai c'est naze mais c'est pour explicité l'idée
@@ -157,4 +172,13 @@ switch/ x :
     case/ default : "None"
 end/
 
+' variable pour ouvrir un ficher, Cpcdos utilise @#MyVar Open/ MyFile.txt pour stocker le contenu du fichier
+let/ MyFile = \#NULL
+MyFile = open/ MyFile.txt
+' D'une maniere cela enleve le @# pour utiliser seulement le LET/ se qui peut simplifier!
 
+' Aussi pour les events Cpcdos utilise .event tout se qui est function dans un ficher externe et qui devrait etre appeller
+include/ "MyFunc.CPC"
+' Alors en mettant cela au debut on evite de reouvrir un fichier a chaque objet graphique
+' Cela permetterais de mettre des variables dans un ficher CPC externe du programme principale, comme un "header"
+' Je pense que pour les basiques on a deja pas mal 
