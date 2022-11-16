@@ -1,0 +1,113 @@
+// Ce fichier, que j'ai fait à part du premier fichier, permet de conceptualiser une syntaxe pour la lib GUI de Cpcdos OS3.0
+
+use/ "cpcgui" // D'après ce qui avait été défini, on importe la lib native pour ajouter les keywords spécifiques à l'interface graphique
+
+// On conceptualisera les éléments graphiques comme suit :
+
+let/ my_window = window/ ... end/
+
+// (Je n'ai pas complété le code de la fenêtre)
+// L'élément est déclaré dans une variable. Cela permettra de créer un parent pour les éléments enfants que nous allons intégrer plus tard
+
+// Auparavant, une fenêtre se créait ainsi :
+
+window/ my_old_window
+  ...
+  ...
+  @#my_old_window_handle create/
+end/ window
+
+// La ligne qui précède `end/ window` créait un handle permettant d'associer un parent lors de la création d'un élément enfant.
+// Aujourd'hui, on passe par une simple déclaration de variable. Ce qui formalise également une seule façon de déclarer des variables.
+// Code complet d'une fenêtre en CC+ 3.0 :
+
+let/ my_window = window/
+    .title = "My window"
+    .px = 100
+    .py = 100
+    .sx = 300
+    .sy = 200
+    .opacity = 255 // L'oppacité est une valeur qui va de 0 à 255
+    .parameters = "TYPE:0" // Je définirais les paramètres ultérieurement dans ce document
+    .barcolor = (50,50,100)
+    .titlecolor = (255,255,255)
+    .windowcolor = (198,198,198)
+    .icon = ""
+end/
+
+// J'ai fait le choix délibéré de remplacer "windowcolor" qui change la couleur de la bar-titre par "barcolor" par question de logique.
+// "windowcolor" va remplacer "backcolor".
+// "titlecolor" reste inchangé.
+
+// La création d'élément enfant se fait comme suit (ici, un bouton) :
+
+let/ my_window_btn = button/
+    .parent = my_window
+    .px = 100
+    .py = 100
+    .sx = 30
+    .sy = 15
+    .opacity = 255
+    .parameters = "CLICKABLE:1 IMGAUTO:0"
+    .text = "Click me !"
+    .backcolor = (50,50,100)
+    .textcolor = (255,255,255)
+    .image = ""
+    .events = my_window_btn_events
+end/
+
+// Remplacement de l'attribut "handle" par "parent" (c'est un choix personnel. On débattera des keywords de toute façon).
+// Création d'un nouveau paramètre : CLICKABLE (0 : le bouton n'est pas cliquable - 1 : le bouton est cliquable).
+// Dans .events, on indique la fonction qui définira les événements provoqués par le bouton lors de son actionnement. Les fonctions sont stockées dans des variables.
+
+// D'autres éléments enfants :
+
+let/ my_picturebox = picturebox/
+    .parent = my_window
+    .px = 10
+    .py = 10
+    .sx = 16
+    .sy = 16
+    .opacity = 125
+    .parameters = "IMGAUTO:0
+    .image = ""
+end/
+
+let/ my_textblock = textblock/
+    .parent = my_window
+    .px = 200
+    .py = 200
+    .sx = 100
+    .sy = 15
+    .font-size = 13
+    .font-family = "sans-serif"
+    .parameters = "BOLD:1 ITALIC:1 UNDERLINE:1 ALIGN:0"
+    .textcolor = (255,255,255)
+    .backcolor = (0,0,0)
+end/
+
+// Ajout de deux nouveaux attributs inspirés du CSS : font-size et font-family
+// Trois paramètres spécifiques : BOLD, ITALIC, UNDERLINE et ALIGN : 0 à gauche, 1 au centre, 2 à droite et 3 justifié
+
+let/ my_textbox = textbox/
+    .parent = my_window
+    .px = 0
+    .py = 150
+    .sx = 100
+    .sy = 15
+    .font-size = 13
+    .font-family = "sans-serif"
+    .parameters = "BOLD:1 ITALIC:0 UNDERLINE:0 ALIGN:0"
+    .textcolor = (0,0,0)
+    .backcolor = (255,255,255)
+end/
+
+// Les mêmes paramètres que pour le textblock. Je rajouterais d'autres éléments plus tard. En attendant, on a déjà de quoi faire une très bonne base.
+
+
+
+
+
+
+
+    
