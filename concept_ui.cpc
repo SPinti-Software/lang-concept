@@ -1,0 +1,49 @@
+// Ce fichier, que j'ai fait à part du premier fichier, permet de conceptualiser une syntaxe pour la lib GUI de Cpcdos OS3.0
+
+use/ "cpcgui" // D'après ce qui avait été défini, on importe la lib native pour ajouter les keywords spécifiques à l'interface graphique
+
+// On conceptualisera les éléments graphiques comme suit :
+
+let/ my_window = window/ ... end/
+
+// (Je n'ai pas complété le code de la fenêtre)
+// L'élément est déclaré dans une variable. Cela permettra de créer un parent pour les éléments enfants que nous allons intégrer plus tard
+
+// Auparavant, une fenêtre se créait ainsi :
+
+window/ my_old_window
+  ...
+  ...
+  @#my_old_window_handle create/
+end/ window
+
+// La ligne qui précède `end/ window` créait un handle permettant d'associer un parent lors de la création d'un élément enfant.
+// Aujourd'hui, on passe par une simple déclaration de variable. Ce qui formalise également une seule façon de déclarer des variables.
+// Code complet d'une fenêtre en CC+ 3.0 :
+
+let/ my_window = window/
+    .title = "My window"
+    .px = 100
+    .py = 100
+    .sx = 300
+    .sy = 200
+    .opacity = 255 // L'oppacité est une valeur qui va de 0 à 255
+    .parameters = "TYPE:0" // Je définirais les paramètres ultérieurement dans ce document
+    .barcolor = (50,50,100)
+    .titlecolor = (255,255,255)
+    .windowcolor = (198,198,198)
+    .icon = ""
+end/
+
+// J'ai fait le choix délibéré de remplacer "windowcolor" qui change la couleur de la bar-titre par "barcolor" par question de logique.
+// "windowcolor" va remplacer "backcolor".
+// "titlecolor" reste inchangé.
+
+
+
+
+
+
+
+
+    
